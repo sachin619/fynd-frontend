@@ -1469,6 +1469,7 @@ var ListComponent = /** @class */ (function () {
         var _this = this;
         event.target.getElementsByClassName('moveLoader')[0].style.display = 'block';
         this.api.deleteMovie({ id: id }).subscribe(function (data) {
+            _this.loadingMessages();
             event.target.getElementsByClassName('moveLoader')[0].style.display = 'none';
             if (data['type'] == 'success') {
                 _this.flashMessagesService.show('Movie deleted successfully', { cssClass: 'alert-danger', timeout: 3000 });
