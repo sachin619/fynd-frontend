@@ -1207,7 +1207,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <div class=\"content-header\">\n    <div class=\"container-fluid\">\n      <div class=\"row mb-2\">\n        <div class=\"col-sm-6\">\n          <h1 class=\"m-0 text-dark\">Add Edit Movie</h1>\n        </div><!-- /.col -->\n      </div><!-- /.row -->\n    </div><!-- /.container-fluid -->\n  </div>\n  <!-- /.content-header -->\n\n  <!-- Main content -->\n  <section class=\"content\">\n    <flash-messages></flash-messages>\n    <div class=\"container-fluid\">\n      <!-- Small boxes (Stat box) -->\n      <!-- SELECT2 EXAMPLE -->\n\n      <form #movieForm=\"ngForm\" >\n      <!-- Slider -->\n      <div class=\"card card-default\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">Movies</h3>\n          <div class=\"card-tools\">\n            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\"><i class=\"fas fa-minus\"></i></button>\n          </div>\n        </div>\n        <!-- /.card-header -->\n        <div class=\"card-body\">\n          <div class=\"row\">\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Name*</label>\n                <input class=\"form-control\" [(ngModel)]=\"formData.name\" name=\"movieName\" placeholder=\"Name\" #movieName=\"ngModel\" required type=\"text\">\n                <div *ngIf=\"movieName.invalid && (movieName.dirty || movieName.touched || isSubmit)\" >\n                  <div *ngIf=\"movieName.errors.required\" class=\"errorClass\">\n                      Name field is required\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Genre</label>\n                <ng-multiselect-dropdown-angular7 [placeholder]=\"'Please Select'\" [data]=\"dropdownList\"\n                  [(ngModel)]=\"selectedItems\" [settings]=\"dropdownSettings\" name=\"genre\" (onSelect)=\"onItemSelect($event)\"\n                  (onSelectAll)=\"onSelectAll($event)\">\n                </ng-multiselect-dropdown-angular7>\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Director</label>\n                <input [(ngModel)]=\"formData.director\" name=\"director\" class=\"form-control\" placeholder=\"Director\" type=\"text\">\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Popularity</label>\n                <input [(ngModel)]=\"formData.popularity\" name=\"popularity\"  class=\"form-control\" placeholder=\"Popularity\" type=\"number\">\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Score</label>\n                <input [(ngModel)]=\"formData.imdb_score\" name=\"imdb_score\" class=\"form-control\" placeholder=\"Score\" type=\"number\">\n              </div>\n            </div>\n\n\n          </div>\n        </div>\n        <div class=\"card-footer\">\n          <button type=\"button\" (click)=\"onSubmit(movieForm)\" class=\"btn btn-primary\">Submit</button>\n        </div>\n\n\n        <!-- /.row (main row) -->\n      </div><!-- /.container-fluid -->\n      </form>\n    </div>\n  </section>\n  <!-- /.content -->\n</div>"
+module.exports = "<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <div class=\"content-header\">\n    <div class=\"container-fluid\">\n      <div class=\"row mb-2\">\n        <div class=\"col-sm-6\">\n          <h1 class=\"m-0 text-dark\">Add Edit Movie</h1>\n        </div><!-- /.col -->\n      </div><!-- /.row -->\n    </div><!-- /.container-fluid -->\n  </div>\n  <!-- /.content-header -->\n\n  <!-- Main content -->\n  <section class=\"content\">\n    <flash-messages></flash-messages>\n    <div class=\"container-fluid\">\n      <!-- Small boxes (Stat box) -->\n      <!-- SELECT2 EXAMPLE -->\n\n      <form #movieForm=\"ngForm\" >\n      <!-- Slider -->\n      <div class=\"card card-default\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">Movies</h3>\n          <div class=\"card-tools\">\n            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\"><i class=\"fas fa-minus\"></i></button>\n          </div>\n        </div>\n        <!-- /.card-header -->\n        <div class=\"card-body\">\n          <div class=\"row\">\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Name*</label>\n                <input class=\"form-control\" [(ngModel)]=\"formData.name\" name=\"movieName\" placeholder=\"Name\" #movieName=\"ngModel\" required type=\"text\">\n                <div *ngIf=\"movieName.invalid && (movieName.dirty || movieName.touched || isSubmit)\" >\n                  <div *ngIf=\"movieName.errors.required\" class=\"errorClass\">\n                      Name field is required\n                  </div>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Genre</label>\n                <ng-multiselect-dropdown-angular7 [placeholder]=\"'Please Select'\" [data]=\"dropdownList\"\n                  [(ngModel)]=\"selectedItems\" [settings]=\"dropdownSettings\" name=\"genre\" (onSelect)=\"onItemSelect($event)\"\n                  (onSelectAll)=\"onSelectAll($event)\">\n                </ng-multiselect-dropdown-angular7>\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Director</label>\n                <input [(ngModel)]=\"formData.director\" name=\"director\" class=\"form-control\" placeholder=\"Director\" type=\"text\">\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Popularity</label>\n                <input [(ngModel)]=\"formData.popularity\" name=\"popularity\"  class=\"form-control\" placeholder=\"Popularity\" type=\"number\">\n              </div>\n            </div>\n\n            <div class=\"col-md-4\">\n              <div class=\"form-group\">\n                <label>Score</label>\n                <input [(ngModel)]=\"formData.imdb_score\" name=\"imdb_score\" class=\"form-control\" placeholder=\"Score\" type=\"number\">\n              </div>\n            </div>\n\n\n          </div>\n        </div>\n        <div class=\"card-footer\">\n          <button type=\"button\" (click)=\"onSubmit(movieForm,$event)\" class=\"btn btn-primary\">Submit <i class=\"fa fa-spinner fa-spin moveLoader\" style=\"display: none;\"></i></button>\n        </div>\n\n\n        <!-- /.row (main row) -->\n      </div><!-- /.container-fluid -->\n      </form>\n    </div>\n  </section>\n  <!-- /.content -->\n</div>"
 
 /***/ }),
 
@@ -1265,7 +1265,6 @@ var AddEditComponent = /** @class */ (function () {
             _this.getId = data.get('id');
             if (_this.getId) {
                 _this.api.getMovies({ getType: 'id', searchText: _this.getId }).subscribe(function (data) {
-                    console.log(data);
                     if (data['details'] && data['details'].length > 0) {
                         _this.formData['name'] = data['details'][0]['name'];
                         _this.formData['genre'] = data['details'][0]['genre'];
@@ -1306,10 +1305,8 @@ var AddEditComponent = /** @class */ (function () {
         this.selectedItems = collectArray;
     };
     AddEditComponent.prototype.onItemSelect = function (item) {
-        console.log(item);
     };
     AddEditComponent.prototype.onSelectAll = function (items) {
-        console.log(items);
     };
     AddEditComponent.prototype.genreGetModified = function (data) {
         var collectGenre = [];
@@ -1322,10 +1319,8 @@ var AddEditComponent = /** @class */ (function () {
         }
         return collectGenre.length > 0 ? collectGenre : data;
     };
-    AddEditComponent.prototype.onSubmit = function (movieForm) {
+    AddEditComponent.prototype.onSubmit = function (movieForm, event) {
         var _this = this;
-        //     this.flashMessage.show('Welcome To TheRichPost.com', { cssClass: 'alert-success', timeout: 5000 });
-        // return false;
         this.isSubmit = true;
         if (movieForm.invalid) {
             return false;
@@ -1334,18 +1329,19 @@ var AddEditComponent = /** @class */ (function () {
         if (this.selectedItems.length > 0) {
             this.formData.genre = this.genreGetModified(this.selectedItems).join();
         }
-        console.log(this.selectedItems);
+        event.target.getElementsByClassName('moveLoader')[0].style.display = 'block';
         /* to update the data */
-        console.log(this.formData);
         if (this.getId) {
             this.formData['id'] = this.getId;
             this.api.updateMovie(this.formData).subscribe(function (data) {
+                event.target.getElementsByClassName('moveLoader')[0].style.display = 'none';
                 _this.messagesService.setMessage('Movies updated Successfully', 'success');
                 _this.router.navigate(['/admin/movies']);
             }, function (err) { return console.log(err); });
         }
         else {
             this.api.createMovie(this.formData).subscribe(function (data) {
+                event.target.getElementsByClassName('moveLoader')[0].style.display = 'none';
                 _this.messagesService.setMessage('Movies added Successfully', 'success');
                 _this.router.navigate(['/admin/movies']);
             }, function (err) { return console.log(err); });
@@ -1385,7 +1381,7 @@ module.exports = ".groupSearch .form-control{\r\n  margin-right: 3px;\r\n}\r\n.g
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <div class=\"content-header\">\n    <div class=\"container-fluid\">\n      <div class=\"row mb-2\">\n        <div class=\"col-sm-6\">\n          <h1 class=\"m-0 text-dark\">Movie List</h1>\n        </div><!-- /.col -->\n      \n      </div><!-- /.row -->\n    </div><!-- /.container-fluid -->\n  </div>\n  <!-- /.content-header -->\n\n  <!-- Main content -->\n  <section class=\"content\">\n    <flash-messages></flash-messages>\n    <div class=\"container-fluid\">\n      <!-- Small boxes (Stat box) -->\n      <!-- SELECT2 EXAMPLE -->\n\n\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <div class=\"row\"> \n            <div class=\"col-md-4\">\n              <h3 class=\"card-title\"></h3>\n            </div>\n            <div class=\"col-md-8 text-right\">\n\n              <div class=\"input-group groupSearch\">\n                <select [(ngModel)]=\"filters.getType\" name=\"getType\" class=\"form-control\" id=\"exampleFormControlSelect2\">\n                  <option value=\"\">Select</option>\n                  <option value=\"genre\">Genre</option>\n                  <option value=\"name\">Name</option>\n                </select>\n                <input [(ngModel)]=\"filters.searchText\" placeholder=\"Search\" name=\"searchText\" type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" >\n                <button type=\"button\" class=\"btn btn-primary\" (click)=\"search()\">Search</button>\n                <button type=\"button\" class=\"btn btn-primary\" (click)=\"reset()\">Reset</button>\n                <button type=\"button\" class=\"btn btn-secondary\" routerLink=\"add-edit\">Add Movie</button>\n\n              </div>\n            </div>\n           \n </div>\n\n        </div>\n        <!-- /.card-header -->\n        <div class=\"card-body\">\n         \n          <table class=\"table table-bordered\">\n            <thead>                  \n              <tr>\n                <th >Id</th>\n                <th>Name</th>\n                <th>Genre</th>\n                <th >Action</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let getData of collectData;let i=index\">\n                <td>{{getData.id}}</td>\n                <td>{{getData.name}}</td>\n                <td>\n                  {{getData.genre}}\n                </td>\n                <td class=\"actionSection\">\n                  <button class=\"btn btn-primary\" [routerLink]=\"['add-edit/',getData.id]\">Edit</button>\n                  <button class=\"btn btn-danger\" (click)=\"deleteMovie(getData.id,i,$event)\">Delete <i   class=\"fa fa-spinner fa-spin moveLoader\" style=\"display: none;\"></i></button>\n                </td>\n              </tr>\n             <tr *ngIf=\"this.loadingMessage['type']!=0\">\n              <td colspan=\"4\" class=\"text-center\">No Data Found</td>\n             </tr>\n            </tbody>\n          </table>\n        </div>\n        <!-- /.card-body -->\n\n      </div>\n\n      <!-- /.row (main row) -->\n    </div><!-- /.container-fluid -->\n  </section>\n  <!-- /.content -->\n</div>"
+module.exports = "<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <div class=\"content-header\">\n    <div class=\"container-fluid\">\n      <div class=\"row mb-2\">\n        <div class=\"col-sm-6\">\n          <h1 class=\"m-0 text-dark\">Movie List</h1>\n        </div><!-- /.col -->\n      \n      </div><!-- /.row -->\n    </div><!-- /.container-fluid -->\n  </div>\n  <!-- /.content-header -->\n\n  <!-- Main content -->\n  <section class=\"content\">\n    <flash-messages></flash-messages>\n    <div class=\"container-fluid\">\n      <!-- Small boxes (Stat box) -->\n      <!-- SELECT2 EXAMPLE -->\n\n\n      <div class=\"card\">\n        <div class=\"card-header\">\n          <div class=\"row\"> \n            <div class=\"col-md-4\">\n              <h3 class=\"card-title\"></h3>\n            </div>\n            <div class=\"col-md-8 text-right\">\n\n              <div class=\"input-group groupSearch\">\n                <select [(ngModel)]=\"filters.getType\" name=\"getType\" class=\"form-control\" id=\"exampleFormControlSelect2\">\n                  <option value=\"\">Select</option>\n                  <option value=\"genre\">Genre</option>\n                  <option value=\"name\">Name</option>\n                </select>\n                <input [(ngModel)]=\"filters.searchText\" placeholder=\"Search\" name=\"searchText\" type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" >\n                <button type=\"button\" class=\"btn btn-primary\" (click)=\"search()\">Search</button>\n                <button type=\"button\" class=\"btn btn-primary\" (click)=\"reset()\">Reset</button>\n                <button type=\"button\" class=\"btn btn-secondary\" routerLink=\"add-edit\">Add Movie</button>\n\n              </div>\n            </div>\n           \n </div>\n\n        </div>\n        <!-- /.card-header -->\n        <div class=\"card-body\">\n         \n          <table class=\"table table-bordered\">\n            <thead>                  \n              <tr>\n                <th >Id</th>\n                <th>Name</th>\n                <th>Genre</th>\n                <th >Action</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let getData of collectData;let i=index\">\n                <td>{{getData.id}}</td>\n                <td>{{getData.name}}</td>\n                <td>\n                  {{getData.genre}}\n                </td>\n                <td class=\"actionSection\">\n                  <button class=\"btn btn-primary\" [routerLink]=\"['add-edit/',getData.id]\">Edit</button>\n                  <button class=\"btn btn-danger\" (click)=\"deleteMovie(getData.id,i,$event)\">Delete <i class=\"fa fa-spinner fa-spin moveLoader\" style=\"display: none;\"></i></button>\n                </td>\n              </tr>\n             <tr *ngIf=\"this.loadingMessage['type']!=0\">\n              <td colspan=\"4\" class=\"text-center\">{{this.loadingMessage['message']}}</td>\n             </tr>\n            </tbody>\n          </table>\n        </div>\n        <!-- /.card-body -->\n\n      </div>\n\n      <!-- /.row (main row) -->\n    </div><!-- /.container-fluid -->\n  </section>\n  <!-- /.content -->\n</div>"
 
 /***/ }),
 
@@ -1433,7 +1429,6 @@ var ListComponent = /** @class */ (function () {
     ListComponent.prototype.ngOnInit = function () {
         var getMessage = this.messagesService.getMessage();
         if (getMessage && getMessage['type'] == "success") {
-            console.log(getMessage);
             this.flashMessagesService.show(getMessage['text'], { cssClass: 'alert-success', timeout: 3000 });
             this.messagesService.setMessage('', '');
         }
@@ -1441,6 +1436,7 @@ var ListComponent = /** @class */ (function () {
     };
     ListComponent.prototype.allMovies = function () {
         var _this = this;
+        this.loadingMessage = { type: 1, message: 'Loading...' };
         this.api.getMovies(this.filters).subscribe(function (data) {
             if (data['type'] == 'success') {
                 _this.collectData = data['details'];
@@ -1450,7 +1446,7 @@ var ListComponent = /** @class */ (function () {
     };
     ListComponent.prototype.search = function () {
         var _this = this;
-        console.log(this.filters);
+        this.loadingMessage = { type: 1, message: 'Loading...' };
         this.api.getMovies(this.filters).subscribe(function (data) {
             if (data['type'] == 'success') {
                 _this.collectData = data['details'];
@@ -1460,6 +1456,7 @@ var ListComponent = /** @class */ (function () {
     };
     ListComponent.prototype.reset = function () {
         var _this = this;
+        this.loadingMessage = { type: 1, message: 'Loading...' };
         this.filters = { getType: "" };
         this.api.getMovies(this.filters).subscribe(function (data) {
             if (data['type'] == 'success') {
@@ -1521,7 +1518,7 @@ module.exports = ".mainDiv{\r\n    overflow: hidden;\r\n}\r\n:host .custom{\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "    <div class=\"custom\">\n      <flash-messages></flash-messages>\n    <div class=\"row mainDiv\">\n      <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\n        <div class=\"card card-signin my-5\">\n          <div class=\"card-body\">\n            <h5 class=\"card-title text-center\">Sign In</h5>\n            <div> \n            <form class=\"form-signin\">\n              <div class=\"form-label-group\"><br>\n                <label for=\"inputEmail\">Email address</label>\n                <input type=\"email\" [(ngModel)]=\"userData.email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n              </div>\n\n              <div class=\"form-label-group\">\n                <label for=\"inputPassword\">Password</label>\n                <input type=\"password\" id=\"inputPassword\"  [(ngModel)]=\"userData.password\" name=\"password\" class=\"form-control\"  placeholder=\"Password\" required>\n              </div>\n\n            \n              <button class=\"btn btn-lg btn-primary btn-block text-uppercase\" (click)=\"onSubmit()\" type=\"button\">Sign in</button>\n           </form>\n          </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>"
+module.exports = "    <div class=\"custom\">\n      <flash-messages></flash-messages>\n    <div class=\"row mainDiv\">\n      <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\n        <div class=\"card card-signin my-5\">\n          <div class=\"card-body\">\n            <h5 class=\"card-title text-center\">Sign In</h5>\n            <div> \n            <form class=\"form-signin\">\n              <div class=\"form-label-group\"><br>\n                <label for=\"inputEmail\">Email address</label>\n                <input type=\"email\" [(ngModel)]=\"userData.email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n              </div>\n\n              <div class=\"form-label-group\">\n                <label for=\"inputPassword\">Password</label>\n                <input type=\"password\" id=\"inputPassword\"  [(ngModel)]=\"userData.password\" name=\"password\" class=\"form-control\"  placeholder=\"Password\" required>\n              </div>\n\n            \n              <button class=\"btn btn-lg btn-primary btn-block text-uppercase\" (click)=\"onSubmit($event)\" type=\"button\">Sign in <i class=\"fa fa-spinner fa-spin moveLoader\" style=\"display: none;\"></i></button>\n           </form>\n          </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>"
 
 /***/ }),
 
@@ -1563,17 +1560,16 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.ngOnInit = function () {
         var getUserDetails = localStorage.getItem('userData');
         if (getUserDetails) {
-            console.log(getUserDetails);
             this.router.navigate(['/admin/movies']);
         }
         return true;
     };
-    LoginComponent.prototype.onSubmit = function () {
+    LoginComponent.prototype.onSubmit = function (event) {
         var _this = this;
-        console.log(localStorage.getItem('key'));
+        event.target.getElementsByClassName('moveLoader')[0].style.display = 'block';
         this.api.userLogin(this.userData).subscribe(function (data) {
+            event.target.getElementsByClassName('moveLoader')[0].style.display = 'none';
             if (data && data['type'] && data['type'] == 'success') {
-                console.log('success');
                 localStorage.setItem('userData', JSON.stringify(data));
                 _this.router.navigate(['admin/movies']);
             }
@@ -1629,7 +1625,6 @@ var AuthGuard = /** @class */ (function () {
     AuthGuard.prototype.canActivate = function (next, state) {
         var getUserDetails = localStorage.getItem('userData');
         if (!getUserDetails) {
-            console.log(getUserDetails);
             this.router.navigate(['/admin/login']);
             return false;
         }

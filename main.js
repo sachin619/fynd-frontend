@@ -289,6 +289,7 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.reset = function () {
         var _this = this;
+        this.loadingMessage = { type: 1, message: 'Loading...' };
         this.filters = { getType: "" };
         this.api.getMovies(this.filters).subscribe(function (data) {
             if (data['type'] == 'success') {
@@ -352,13 +353,17 @@ var ApiService = /** @class */ (function () {
     function ApiService(http) {
         this.http = http;
         this.getAuth = "";
+    }
+    ApiService.prototype.getToken = function () {
+        var token = "";
         if (localStorage.getItem('userData')) {
             var getUserData = JSON.parse(localStorage.getItem('userData'));
             if (getUserData['token']) {
-                this.getAuth = getUserData['token'];
+                token = getUserData['token'];
             }
         }
-    }
+        return token;
+    };
     ApiService.prototype.getMovies = function (data) {
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_0__["Headers"]({ 'Content-Type': 'application/json' });
         return this.http.post(_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigJson"].url + "/movies", data, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
@@ -366,13 +371,15 @@ var ApiService = /** @class */ (function () {
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
     };
     ApiService.prototype.updateMovie = function (data) {
-        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_0__["Headers"]({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (this.getAuth) });
+        var token = this.getToken();
+        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_0__["Headers"]({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (token) });
         return this.http.post(_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigJson"].url + "/movies/update", data, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
             return response.json();
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
     };
     ApiService.prototype.createMovie = function (data) {
-        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_0__["Headers"]({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (this.getAuth) });
+        var token = this.getToken();
+        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_0__["Headers"]({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (token) });
         return this.http.post(_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigJson"].url + "/movies/create", data, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
             return response.json();
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
@@ -384,8 +391,8 @@ var ApiService = /** @class */ (function () {
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
     };
     ApiService.prototype.deleteMovie = function (data) {
-        console.log(this.getAuth);
-        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_0__["Headers"]({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (this.getAuth) });
+        var token = this.getToken();
+        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_0__["Headers"]({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (token) });
         return this.http.post(_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigJson"].url + "/movies/delete/" + data.id, data, { headers: headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
             return response.json();
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
